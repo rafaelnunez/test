@@ -1,0 +1,26 @@
+{
+  "local": {
+    "GTM_ID": "GTM-PV4NSN",
+    "HUBSPOT_ID": "7254930",
+    "BASE_API_URL": "https://dev.alegra.com/api/",
+    "BASE_URL": "http://dev.alegra.com:8006/",
+    "COOKIE_TOKEN": "al-test-days-of-thunder"
+  },
+
+  "testing": {
+    "GTM_ID": "GTM-PV4NSN",
+    "HUBSPOT_ID": "7254930",
+    "BASE_API_URL": "https://gates.alegra.com/api/",
+    "BASE_URL": "https://hopper.alegra.com/",
+    "BASE_API_CONFIG_URL": "https://almost-config.alegra.com/api/",
+    "COOKIE_TOKEN": "al-test-days-of-thunder"
+  },
+
+  "production": {
+    "GTM_ID": "GTM-KQG46G",
+    "HUBSPOT_ID": "6180490",
+    "BASE_API_URL": "https://api.alegra.com/api/",
+    "BASE_URL": "https://memberships-api.alegra.com/",
+    "COOKIE_TOKEN": "al-days-of-thunder"
+  }
+}

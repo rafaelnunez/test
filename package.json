@@ -1,0 +1,74 @@
+{
+  "name": "test-talana-app",
+  "version": "1.0.0",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "build:widget": "cross-env VUE_APP_IS_WIDGET=true vue-cli-service build --target lib --dest ./dist-widgets --name widgets src/widgets.js",
+    "init": "npx extract-zip init.zip && npm run lint",
+    "restore": "npx rimraf src/api/example.js src/components/Default src/router/routes.js src/store/index.js src/store/example src/views/Default.vue src/views/DefaultTestView.vue src/languages/en/* src/languages/es/* src/config.js src/widgets.js src/widgets/example.vue"
+  },
+  "files": [
+    "dist/*",
+    "dist-widgets/*"
+  ],
+  "dependencies": {
+    "@sentry/browser": "^6.5.1",
+    "@sentry/integrations": "^6.5.1",
+    "big.js": "^6.1.1",
+    "core-js": "^3.14.3",
+    "js-cookie": "^2.2.1",
+    "lodash-es": "^4.17.21",
+    "pusher-js": "^7.0.3",
+    "vue": "^2.6.14",
+    "vue-dayjs-plugin": "^1.0.0",
+    "vue-router": "^3.5.1",
+    "vuelidate": "^0.7.6",
+    "vuetify": "^2.5.6",
+    "vuetify-loader": "^1.7.2",
+    "vuex": "^3.6.2",
+    "vuex-pathify": "^1.4.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.12",
+    "@vue/cli-plugin-eslint": "~4.5.12",
+    "@vue/cli-plugin-router": "~4.5.12",
+    "@vue/cli-plugin-unit-jest": "~4.5.12",
+    "@vue/cli-plugin-vuex": "~4.5.12",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "1.2.0",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "deepmerge": "^4.2.2",
+    "eslint": "^7.25.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
+    "lint-staged": "^10.5.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.13",
+    "sass-loader": "^10.2.0",
+    "terser-webpack-plugin": "^4.2.2",
+    "vue-cli-plugin-vuetify": "~2.4.1",
+    "vue-template-compiler": "^2.6.12",
+    "vuetify-loader": "^1.7.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "keywords": [
+    "talana",
+    "vue"
+  ],
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
