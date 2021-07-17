@@ -18,4 +18,4 @@
 
 Proyecto creado y mantenido por:
 
-- Rafael Nuñez Manotas (Developer) rafael.nunez@alegra.com
+- Rafael Nuñez Manotas (Developer) 1995nunezrafael@gmail.com
