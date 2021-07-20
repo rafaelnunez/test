@@ -1,4 +1,3 @@
-import Cookies from "js-cookie"
 import ENV from "../../enviroment.json"
 
 // pseudo-random character function
@@ -11,7 +10,7 @@ const baseUrl = ENV[appEnviroment]["BASE_URL"]
 const isWidget = process.env.VUE_APP_IS_WIDGET === "true"
 const baseApiConfigUrl = getEnv("BASE_API_CONFIG_URL")
 const widgetModuleName = ENV["WIDGET_MODULE_NAME"] || widgetModuleNameRandom
-const prefixPath = "admin/"
+const prefixPath = "api/"
 // Use the "en-US" format, as is the default formatfor displaying prices in Alegra.
 const numberFormatterInstance = new Intl.NumberFormat("en-US", {
   minimumFractionDigits: 2,
@@ -44,17 +43,6 @@ function getEnv(key, env = appEnviroment) {
 }
 
 /**
- * Returns wheater the app can be mounted, dependeing if the cookie of Alegra session is present.
- */
-function canBeMounted() {
-  const cookieTokenKey = getEnv("COOKIE_TOKEN") // ENV[appEnviroment][]
-
-  if (appEnviroment === "production" && !Cookies.get(cookieTokenKey)) return false
-
-  return true
-}
-
-/**
  * Take only specified keys of the object passed as argument
  * @param {Object} obj to take keys from
  * @param {Array<String>} keys Array of Strings that contains the keys to get from the object
@@ -69,7 +57,6 @@ function pick(obj, keys) {
 }
 
 export {
-  // constants
   appEnviroment,
   baseApiUrl,
   baseUrl,
@@ -79,7 +66,6 @@ export {
   prefixPath,
   // methods
   numberFormatter,
-  canBeMounted,
   pick,
   getEnv
 }

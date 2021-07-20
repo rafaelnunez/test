@@ -10,7 +10,7 @@ export default {
       if (param === null || param === undefined) {
         return ""
       }
-      return param.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
+      return "$" + param.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,")
     }
   }
 }

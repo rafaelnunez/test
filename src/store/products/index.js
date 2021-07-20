@@ -2,9 +2,9 @@ import { make } from "vuex-pathify"
 import actions from "./actions"
 
 const inistialState = () => ({
-  addonsMembership: null,
-  addons: null,
-  addon: null,
+  products: [],
+  product: null,
+  productCategories: [],
   loading: false
 })
 

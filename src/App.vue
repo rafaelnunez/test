@@ -1,46 +1,57 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view />
-    </v-main>
+    <Navbar @searchProducts="searchProducts" :cart="cart" :subtotalCart="subtotalCart" />
+    <v-skeleton-loader class="mx-auto" max-width="300" type="list-item-title"></v-skeleton-loader>
+    <CategoryProduct />
+    <v-content>
+      <MainLayout />
+    </v-content>
   </v-app>
 </template>
 
 <script>
+import MainLayout from "./components/MainLayout.vue"
+import Navbar from "@/components/Navbar"
+import CategoryProduct from "@/components/product/CategoryProduct.vue"
+
 export default {
   name: "App",
+  data() {
+    return {
+      cart: [],
+      products: []
+    }
+  },
+  components: {
+    MainLayout,
+    Navbar,
+    CategoryProduct
+  },
+  computed: {
+    subtotalCart: function () {
+      let sum = 0
+      this.cart.map(p => {
+        sum += parseInt(p.price) * p.quantity
+      })
 
-  data: () => ({
-    //
-  })
+      return sum
+    },
+    filteredProducts: function () {
+      return this.products
+        ? this.products.filter(p => p.name.toLowerCase().match(this.searchQuery.toLowerCase()))
+        : this.products
+    }
+  },
+  methods: {}
 }
 </script>
+
+<style lang="css" scoped>
+.container {
+  display: flex;
+  width: 100%;
+}
+#drawer {
+  background: rgba(240, 240, 240, 1);
+}
+</style>

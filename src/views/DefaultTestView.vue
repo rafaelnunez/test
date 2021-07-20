@@ -2,7 +2,8 @@
   <div>
     <br />
     <h2>Default test Talana</h2>
-    <v-alert border="top" color="red lighten-2" dark>
+    <ProductList />
+    <!-- <v-alert border="top" color="red lighten-2" dark>
       I'm an alert with a top border and red color
     </v-alert>
     <v-simple-table>
@@ -20,57 +21,19 @@
           </tr>
         </tbody>
       </template>
-    </v-simple-table>
+    </v-simple-table> -->
   </div>
 </template>
 
 <script>
+import ProductList from "@/components/product/ProductList.vue"
+
 export default {
   data() {
-    return {
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          calories: 159
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237
-        },
-        {
-          name: "Eclair",
-          calories: 262
-        },
-        {
-          name: "Cupcake",
-          calories: 305
-        },
-        {
-          name: "Gingerbread",
-          calories: 356
-        },
-        {
-          name: "Jelly bean",
-          calories: 375
-        },
-        {
-          name: "Lollipop",
-          calories: 392
-        },
-        {
-          name: "Honeycomb",
-          calories: 408
-        },
-        {
-          name: "Donut",
-          calories: 452
-        },
-        {
-          name: "KitKat",
-          calories: 518
-        }
-      ]
-    }
+    return {}
+  },
+  components: {
+    ProductList
   }
 }
 </script>

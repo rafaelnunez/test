@@ -17,11 +17,5 @@ export default {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
-}
-
-.container-content {
-  margin-top: 80px;
-  padding: 0 30px;
 }
 </style>

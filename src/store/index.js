@@ -1,7 +1,7 @@
 import Vue from "vue"
 import Vuex from "vuex"
 import pathify from "vuex-pathify"
-import addons from "./addons"
+import products from "./products"
 
 Vue.use(Vuex)
 
@@ -11,7 +11,7 @@ const store = new Vuex.Store({
   mutations: {},
   actions: {},
   modules: {
-    addons
+    products
   }
 })
 
