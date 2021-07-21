@@ -9,7 +9,7 @@
           <div>
             <v-card-text>Nombre : {{ product.name }}</v-card-text>
             <v-card-text>Código : {{ product.code }}</v-card-text>
-            <v-card-text>Precio : {{ product.price }}</v-card-text>
+            <v-card-text>Precio : {{ renderMoney(product.price) }}</v-card-text>
           </div>
         </div>
         <v-card-text class="text-wrap">{{ product.description }}</v-card-text>
