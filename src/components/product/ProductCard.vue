@@ -5,19 +5,24 @@
       :elevation="hover ? 12 : 2"
       :class="{ 'on-hover': hover }"
       max-width="240"
-      @click="openProduct()"
     >
-      <v-img max-height="220" :src="productPhoto"></v-img>
+      <div @click="openProduct()">
+        <v-img max-height="220" :src="productPhoto"></v-img>
 
-      <v-card-text>
-        <div class="my-4 text-title">{{ product.name }}</div>
-        <h2>{{ renderMoney(product.price) }}</h2>
-        <p>{{ stockCustom }}</p>
-      </v-card-text>
-
-      <v-card-actions>
-        <v-btn color="deep-purple lighten-2" text @click="reserve"> Agregar al carrito </v-btn>
+        <v-card-text>
+          <div class="my-4 text-title">{{ product.name }}</div>
+          <h2>{{ renderMoney(product.price) }}</h2>
+          <p>{{ stockCustom }}</p>
+        </v-card-text>
+      </div>
+      <v-card-actions v-if="hasStock">
+        <v-btn icon v-on:click="addToCart">
+          <v-icon color="red">mdi-cart-plus</v-icon>
+        </v-btn>
       </v-card-actions>
+      <v-snackbar v-model="snackbar.visible" bottom :timeout="snackbar.timeout">
+        {{ snackbar.text }}
+      </v-snackbar>
     </v-card>
   </v-hover>
 </template>
@@ -57,11 +62,15 @@ export default {
           : "Disponibles " + stock
 
       return response
+    },
+    hasStock() {
+      let hasStock = this.product.stock > 0
+      return hasStock
     }
   },
   methods: {
     openProduct() {
-      this.openProductModal = true
+      this.$emit("openModal", this.product)
     }
   }
 }

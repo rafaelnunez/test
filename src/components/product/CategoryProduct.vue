@@ -13,7 +13,7 @@
     </template>
     <template v-else>
       <v-list v-for="(category, index) in categories" :key="index" nav dense>
-        <v-list-item @click="filterProduct(category)" link>
+        <v-list-item link>
           <v-list-item-title>{{ category.name }}</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -38,10 +38,13 @@ export default {
     }
   },
   methods: {
-    getProductCategories: call("products/getProductCategoriesAction"),
-    filterProduct(category) {
-      console.log(category)
-    }
+    getProductCategories: call("products/getProductCategoriesAction")
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  margin-left: 15px;
+}
+</style>

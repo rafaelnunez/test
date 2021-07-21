@@ -5,6 +5,7 @@ const inistialState = () => ({
   products: [],
   product: null,
   productCategories: [],
+  productsSelect: [],
   loading: false
 })
 

@@ -57,7 +57,6 @@ const actions = {
         store.set("products/loading", true)
         const { data } = await getProductCategories()
         if (data) {
-          console.log(data)
           store.set("products/productCategories", data)
           store.set("products/loading", false)
         }
@@ -68,6 +67,29 @@ const actions = {
         store.set("products/loading", false)
       }
     })
+  },
+  /**
+   * Función agregar producto al carrito
+   * @author   Rafael Nuñez Manotas
+   */
+  setAddProductCartAction(context, product) {
+    let productsSelect = store.get("products/productsSelect")
+    let selectedProductIndex = productsSelect.findIndex(p => p.id === product.id)
+    if (selectedProductIndex > -1) {
+      productsSelect[selectedProductIndex].quantity++
+    } else {
+      productsSelect.push({ ...product, quantity: 1 })
+    }
+    store.set("products/productsSelect", productsSelect)
+  },
+  /**
+   * Función eliminar producto del carrito
+   * @author   Rafael Nuñez Manotas
+   */
+  removeProductCartAction(context, index) {
+    let productsSelect = store.get("products/productsSelect")
+    productsSelect.splice(index, 1)
+    store.set("products/productsSelect", productsSelect)
   }
 
   // createAddonAction(context, payload) {

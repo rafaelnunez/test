@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <Navbar @searchProducts="searchProducts" :cart="cart" :subtotalCart="subtotalCart" />
+    <Navbar :cart="cart" :subtotalCart="subtotalCart" />
     <v-skeleton-loader class="mx-auto" max-width="300" type="list-item-title"></v-skeleton-loader>
     <CategoryProduct />
-    <v-content>
+    <v-main>
       <MainLayout />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 
@@ -35,11 +35,6 @@ export default {
       })
 
       return sum
-    },
-    filteredProducts: function () {
-      return this.products
-        ? this.products.filter(p => p.name.toLowerCase().match(this.searchQuery.toLowerCase()))
-        : this.products
     }
   },
   methods: {}
